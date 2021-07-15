@@ -2,11 +2,12 @@
 
 import mongoose from "mongoose";
 
-const name='dauleadmin'
-const pass = "9204315195dD@"
-const dbName = "Bank"
+const name = 'saurav'
+const pass = "7004Saurav"
+const dbName = "Lookie"
 const mongoAtlasUri =
-    `mongodb+srv://${name}:${pass}@cluster0.yhimq.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+    // `mongodb+srv://${name}:${pass}@cluster0.yhimq.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+    `mongodb+srv://${name}:${pass}@cluster0.yfs73.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 try {
     // Connect to the MongoDB cluster
     mongoose.connect(
