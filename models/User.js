@@ -8,9 +8,12 @@
 
 // export const UserModel = mongoose.model('User', UserSchema);
 // const mongoose = require('mongoose');
-import mongoose from 'mongoose';
-// const bycrpt = require('bcryptjs');
+
 import bycrpt from 'bcryptjs';
+import mongoose from 'mongoose';
+
+// const bycrpt = require('bcryptjs');
+
 
 //User Schema
 export const UserSchema = new mongoose.Schema({
@@ -28,6 +31,10 @@ export const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        required: true
+    },
+    mobile: {
+        type: Number,
         required: true
     }
 });

@@ -21,8 +21,7 @@ import helmet from 'helmet';
 
 import getAuthRoutes from './routes/auth.js';
 import getProductRoutes from './routes/products.js';
-// import getUserRoutes from './routes/users.js';
-import getOrderRoutes from './routes/orders.js';
+import getAppointmentRoutes from './routes/appointment.js';
 import logger from './middleware/logger.js';
 import withAdminPermission from './middleware/withAdminPermission.js';
 // import withAuthenticated from './middleware/withAuthentication.js';
@@ -52,7 +51,7 @@ app.use(logger);
 // getUserRoutes(app);
 getProductRoutes(app);
 getAuthRoutes(app);
-getOrderRoutes(app);
+getAppointmentRoutes(app);
 
 app.get('/', (req, res) => res.send({
     dateTime: new Date().toJSON()

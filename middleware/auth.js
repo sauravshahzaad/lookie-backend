@@ -1,8 +1,11 @@
 // const jwt = require('jsonwebtoken'),
 //     config = require('../config');
-import jwt from "jsonwebtoken"
-// import config from "../config"
+
 import cred from "../cred/database.js"
+import jwt from "jsonwebtoken"
+
+// import config from "../config"
+
 export default {
     isAuthenticated: function (req, res, next) {
         // console.log(req)
@@ -26,6 +29,7 @@ export default {
                     req.name = decoded.data.name;
                     req.username = decoded.data.username;
                     req.email = decoded.data.email;
+                    req.mobile=decoded.data.mobile;
                     next();
                 }
             });

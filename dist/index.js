@@ -14,7 +14,7 @@ var _auth = _interopRequireDefault(require("./routes/auth.js"));
 
 var _products = _interopRequireDefault(require("./routes/products.js"));
 
-var _orders = _interopRequireDefault(require("./routes/orders.js"));
+var _appointment = _interopRequireDefault(require("./routes/appointment.js"));
 
 var _logger = _interopRequireDefault(require("./middleware/logger.js"));
 
@@ -42,7 +42,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 //     "nodemon": "^1.18.5",
 //     "regenerator-runtime": "^0.12.1"
 // import { db } from './db/index';
-// import getUserRoutes from './routes/users.js';
 // import withAuthenticated from './middleware/withAuthentication.js';
 var app = (0, _express["default"])();
 app.use((0, _helmet["default"])());
@@ -65,7 +64,7 @@ app.use(_logger["default"]); // getUserRoutes(app);
 
 (0, _products["default"])(app);
 (0, _auth["default"])(app);
-(0, _orders["default"])(app);
+(0, _appointment["default"])(app);
 app.get('/', function (req, res) {
   return res.send({
     dateTime: new Date().toJSON()

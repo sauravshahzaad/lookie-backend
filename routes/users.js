@@ -115,7 +115,8 @@ export default (router) => {
             name: req.body.name,
             email: req.body.email,
             userName: req.body.userName,
-            password: req.body.password
+            password: req.body.password,
+            mobile: req.body.mobile
         });
 
         //To check if the email has been registered
@@ -175,7 +176,7 @@ export default (router) => {
                             expiresIn: 604800 //1 week
                         }
                     );
-
+                    // console.log(user, "in routes")
                     res.cookie('token', token).json({
                         success: true,
                         msg: 'Successfully Login ',
@@ -183,7 +184,9 @@ export default (router) => {
                         user: {
                             name: user.name,
                             username: user.username,
-                            email: user.email
+                            email: user.email,
+                            mobile: user.mobile,
+                            id: user._id
                         }
                     });
                 } else {
@@ -204,7 +207,8 @@ export default (router) => {
         res.json({
             name: req.name,
             userName: req.userName,
-            email: req.email
+            email: req.email,
+            mobile: req.mobile
         });
     });
 
