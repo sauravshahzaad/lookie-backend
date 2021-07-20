@@ -6,24 +6,39 @@ export default (app) => {
             req.status(400).end();
         }
         else {
-
-            const appoint = await AppointmentModel.create(req.body);
-            console.log(appoint)
-            if (appoint) {
+            console.log(req.body)
+            // const appoint = await AppointmentModel.create(req.body);
+            try {
+            const newAppointment = {
+                customerName: req.body.Name,
+                customerMobile: req.body.mobile,
+                appointmentDate: req.body.date,
+                appointmentStartTime: req.body.startTime,
+                serviceName: req.body.services,
+                customerId: req.body.id,
+                shopId: req.body.shopId
+            }
+            const appointment = AppointmentModel(newAppointment);
+            appointment.save()
+            if (appointment) {
+                // res.send(user);
+                console.log(appointment)
                 res.json({
                     success: true,
                     msg: 'Appointment Booked    ',
                     appointment: {
                         ...req.body,
-                        ...appoint
+                        ...appointment
                     },
-
                 })
-
             } else {
-                res.status(500).end();
+                res.status(404).end();
             }
+        } catch (e) {
+            res.status(404).end();
         }
+
+    }
     });
     // app.post('/v1/orders', async (req, res) => {
     //     if (req.body === undefined) {
@@ -44,7 +59,6 @@ export default (app) => {
     //         }
     //     }
     // });
-
     // app.get('/v1/orders', async (req, res) => {
     //     if (!req.user.data._id) {
     //         res.status(401).end();
